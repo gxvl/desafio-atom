@@ -1,14 +1,74 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import { NAV_BUTTONS } from "@/constants";
+import { useState } from "react";
 
-const Header = () => {
+export default function Header() {
+  const [isMenuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!isMenuOpen);
+  };
+
   return (
-    <div className=" bg-purple-100 container flex justify-center max-w-[1920px] w-full p-10">
+    <div className=" bg-purple-100 container lg:flex sm: grid place-items-center justify-center max-w-[1920px] w-full p-10">
+      {/* logo */}
       <Link href="/" className=" mt-10 hover:scale-105 transition-all">
         <Image src="/logo.svg" alt="logo" width={161.14} height={36.54} />
       </Link>
+      <div className="lg:hidden p-2 grid">
+        {/* Menu Hamburger */}
+        {/* Ícone de hambúrguer para abrir/fechar o menu */}
+        <button
+          type="button"
+          onClick={toggleMenu}
+          className="text-white focus:outline-none"
+        >
+          {isMenuOpen ? (
+            // Ícone de fechar (X) quando o menu está aberto
+            <button onClick={toggleMenu} className="text-4xl">
+              &times;
+            </button>
+          ) : (
+            // Ícone de hambúrguer (três linhas horizontais) quando o menu está fechado
+            <button onClick={toggleMenu} className="text-4xl">
+              &#8801;
+            </button>
+          )}
+        </button>
 
+        {/* Menu de navegação (exibido/oculto com base no estado) */}
+        {isMenuOpen && (
+          <div className="">
+            <ul className="text-white">
+              {NAV_BUTTONS.map((link) => (
+                <Link
+                  href={link.href}
+                  key={link.key}
+                  className={`text-base text-white  flexCenter cursor-pointer
+            pb-1.5 transition-all hover:font-bold ${
+              link.key === "home" && "font-bold" // se o link atual no map for igual a home, então coloca font-bold
+            }`}
+                >
+                  {link.key === "home" && ( // se o link atual no map for igual a home, então mostra a barra verde
+                    <Image
+                      src="/green-bar.svg"
+                      alt="green-bar"
+                      width={2}
+                      height={2}
+                      className="mr-1"
+                    />
+                  )}
+                  {link.label}
+                </Link>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+
+      {/* Menu de navegação */}
       <ul className="hidden h-full gap-12 mt-12 px-36 lg:flex">
         {NAV_BUTTONS.map((link) => (
           <Link
@@ -36,7 +96,7 @@ const Header = () => {
         <input
           type="text"
           placeholder="Buscar"
-          className="hidden lg:block bg-purple-200 text-gray-200
+          className=" lg:block bg-purple-200 text-gray-200
            placeholder-gray-200 py-3.5 px-7 rounded-l text-sm	
            text-decoration-none focus:outline-none
             "
@@ -51,6 +111,4 @@ const Header = () => {
       </div>
     </div>
   );
-};
-
-export default Header;
+}
