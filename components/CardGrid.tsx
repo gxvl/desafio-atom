@@ -5,6 +5,7 @@ import Image from "next/image";
 export const CardGrid = () => {
   return (
     <div className="container max-w-[1920px] w-full mx-auto p-10">
+      {/* div para os cards de cima  */}
       <div className="lg:flex justify-center grid lg:gap-16 p-4 sm:my-5">
         <div className=" max-w-xl lg:px-1">
           <Card
@@ -31,7 +32,7 @@ export const CardGrid = () => {
             alt="divider"
             width={500}
             height={50}
-            className="pb-4"
+            className="pb-6"
           />
           <Card
             txt="Veja a evolução do Front-end na prática"

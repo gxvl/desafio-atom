@@ -1,6 +1,8 @@
 import React, { ReactNode } from "react";
 import Image from "next/image";
 
+// Card reutilizável para os dois tipos de card do site
+
 interface CardProps {
   img?: string;
   txt: string;
@@ -25,7 +27,6 @@ export const Card: React.FC<CardProps> = ({
           className="pb-4"
           src={img || ""}
           alt={img || ""}
-          // layout="responsive"
           width={569}
           height={342}
         />
@@ -40,7 +41,7 @@ export const Card: React.FC<CardProps> = ({
       >
         {txt}
       </h4>
-      <p className="text-black pb-4">{lorem}</p>
+      <p className="text-black pb-6">{lorem}</p>
     </div>
   );
 };

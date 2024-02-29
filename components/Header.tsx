@@ -11,6 +11,32 @@ export default function Header() {
     setMenuOpen(!isMenuOpen);
   };
 
+  // Como utilizarei o mesmo código para o menu de navegação e para o menu de navegação mobile,
+  // criei uma constante para armazenar os links e a reutilizar
+
+  const homeButtons = NAV_BUTTONS.map((link) => (
+    <Link
+      href={link.href}
+      key={link.key}
+      className={`text-base text-white  flexCenter cursor-pointer
+            pb-1.5 transition-all hover:font-bold ${
+              link.key === "home" && "font-bold" // se o link atual no map for igual a home, então coloca font-bold
+            }`}
+    >
+      {link.key === "home" && ( // se o link atual no map for igual a home, então mostra a barra verde
+        <Image
+          src="/green-bar.svg"
+          alt="green-bar"
+          width={2}
+          height={2}
+          loading="lazy"
+          className="mr-1"
+        />
+      )}
+      {link.label}
+    </Link>
+  ));
+
   return (
     <div className=" bg-purple-100 container lg:flex sm: grid place-items-center justify-center max-w-[1920px] w-full p-10">
       {/* logo */}
@@ -26,71 +52,29 @@ export default function Header() {
           className="text-white focus:outline-none"
         >
           {isMenuOpen ? (
-            // Ícone de fechar (X) quando o menu está aberto
+            // Se o menu estiver aberto, exibe o 'X' para fechar
             <button onClick={toggleMenu} className="text-4xl">
               &times;
             </button>
           ) : (
-            // Ícone de hambúrguer (três linhas horizontais) quando o menu está fechado
+            // Quando o menu tá fechado, exibe o ícone de menu
             <button onClick={toggleMenu} className="text-4xl">
               &#8801;
             </button>
           )}
         </button>
 
-        {/* Menu de navegação (exibido/oculto com base no estado) */}
+        {/* Menu de navegação (exibido/oculto com base no state "isMenuOpen") */}
         {isMenuOpen && (
           <div className="">
-            <ul className="text-white">
-              {NAV_BUTTONS.map((link) => (
-                <Link
-                  href={link.href}
-                  key={link.key}
-                  className={`text-base text-white  flexCenter cursor-pointer
-            pb-1.5 transition-all hover:font-bold ${
-              link.key === "home" && "font-bold" // se o link atual no map for igual a home, então coloca font-bold
-            }`}
-                >
-                  {link.key === "home" && ( // se o link atual no map for igual a home, então mostra a barra verde
-                    <Image
-                      src="/green-bar.svg"
-                      alt="green-bar"
-                      width={2}
-                      height={2}
-                      className="mr-1"
-                    />
-                  )}
-                  {link.label}
-                </Link>
-              ))}
-            </ul>
+            <ul className="text-white">{homeButtons}</ul>
           </div>
         )}
       </div>
 
       {/* Menu de navegação */}
       <ul className="hidden h-full gap-12 mt-12 px-36 lg:flex">
-        {NAV_BUTTONS.map((link) => (
-          <Link
-            href={link.href}
-            key={link.key}
-            className={`text-base text-white  flexCenter cursor-pointer
-            pb-1.5 transition-all hover:font-bold ${
-              link.key === "home" && "font-bold" // se o link atual no map for igual a home, então coloca font-bold
-            }`}
-          >
-            {link.key === "home" && ( // se o link atual no map for igual a home, então mostra a barra verde
-              <Image
-                src="/green-bar.svg"
-                alt="green-bar"
-                width={2}
-                height={2}
-                className="mr-1"
-              />
-            )}
-            {link.label}
-          </Link>
-        ))}
+        {homeButtons}
       </ul>
       <div className="flex mt-10">
         <input

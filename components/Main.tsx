@@ -9,7 +9,7 @@ const Main = () => {
         <h1 className="text-3xl lg:text-4xl lg:leading-relaxed text-purple-50 font-pop font-bold">
           Veja o guia definitivo para conquistar seus objetivos como DEV em 2022
         </h1>
-        <p className="text-slate-200 text-base lg:text-lg max-w-lg py-5">
+        <p className="text-slate-200 text-base lg:text-lg max-w-lg py-5 pr-7">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nibh nibh eu
           in aliquet ut adipiscing neque. Sed volutpat aenean sit vitae, sed
           tristique placerat hac.
