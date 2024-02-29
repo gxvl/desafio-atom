@@ -4,8 +4,8 @@ import { Card } from "./Card";
 export const CardGrid = () => {
   return (
     <div className="container max-w-[1920px] w-full mx-auto p-10">
-      <div className="lg:flex justify-center grid place-items-center gap-16 md:gap-16 md:p-10 lg:p-16 sm: my-5">
-        <div className=" max-w-xl">
+      <div className="lg:flex justify-center grid lg:gap-16 p-4 sm:my-5">
+        <div className=" max-w-xl lg:px-1">
           <Card
             img="/mac.svg"
             txt="Começando no ReactJS em 2022"
@@ -16,7 +16,7 @@ export const CardGrid = () => {
                Sed volutpat aenean."
           />
         </div>
-        <div className="grid-rows-3 grid-flow-col gap-7 max-w-lg md:grid-cols-2">
+        <div className="max-w-lg lg:px-5">
           <Card
             font="font-pop"
             txt="Conheça as principais técnicas para conseguir uma vaga internacional em programação"
@@ -34,7 +34,7 @@ export const CardGrid = () => {
 
       {/* div para os cards de baixo */}
 
-      <div className="grid grid-rows-3  grid-flow-col mx-auto lg:max-w-6xl md:flex md:gap-7 md:justify-center">
+      <div className="grid grid-rows-3 grid-flow-col mx-auto lg:max-w-6xl md:flex md:gap-7 md:justify-center">
         <Card
           img="/coding.svg"
           txt="10 dicas para conseguir a vaga desejada"

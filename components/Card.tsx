@@ -11,7 +11,7 @@ interface CardProps {
 
 export const Card: React.FC<CardProps> = ({ img, txt, date, font, lorem }) => {
   return (
-    <div className="container flex flex-col mx-auto">
+    <div className="container flex flex-col mx-auto py-4">
       {img ? (
         <Image
           src={img || ""}
@@ -23,8 +23,8 @@ export const Card: React.FC<CardProps> = ({ img, txt, date, font, lorem }) => {
       ) : (
         ""
       )}
-      <p className="text-base py-2">{date}</p>
-      <h4 className={`text-2xl text-purple-100 ${font || ""} font-bold py-2`}>
+      <p>{date}</p>
+      <h4 className={`text-2xl text-purple-100 ${font || ""} font-bold py-4`}>
         {txt}
       </h4>
       <p className="text-black">{lorem}</p>
