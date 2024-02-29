@@ -1,5 +1,6 @@
 import React from "react";
 import { Card } from "./Card";
+import Image from "next/image";
 
 export const CardGrid = () => {
   return (
@@ -10,19 +11,27 @@ export const CardGrid = () => {
             img="/mac.svg"
             txt="Começando no ReactJS em 2022"
             date="Janeiro 04, 2022"
+            py="4"
             lorem="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nibh nibh eu in
              aliquet ut adipiscing neque. Sed volutpat aenean sit vitae, sed tristique nibh
               nibh eu in aliquet ut adipiscing neque. Sed volutpat aenean sit vitae, sed tristique.
                Sed volutpat aenean."
           />
         </div>
-        <div className="max-w-lg lg:px-5">
+        <div className="max-w-lg lg:px-5 ml-2">
           <Card
             font="font-pop"
             txt="Conheça as principais técnicas para conseguir uma vaga internacional em programação"
             date="Janeiro 04, 2022"
             lorem="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nibh nibh eu in aliquet ut adipiscing neque. 
             Sed volutpat aenean sit vitae, sed tristique."
+          />
+          <Image
+            src="/divider.svg"
+            alt="divider"
+            width={500}
+            height={50}
+            className="pb-4"
           />
           <Card
             txt="Veja a evolução do Front-end na prática"
