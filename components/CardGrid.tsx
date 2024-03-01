@@ -11,7 +11,7 @@ export const CardGrid = () => {
       <div className="lg:flex justify-center grid lg:gap-16 p-4 sm:my-5">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -50 }}
           transition={{ duration: 0.3, delay: 0.5 }}
           className=" max-w-xl lg:px-1"
@@ -29,7 +29,7 @@ export const CardGrid = () => {
         </motion.div>
         <motion.div
           initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: 50 }}
           transition={{ duration: 0.3, delay: 0.5 }}
           className="max-w-lg lg:px-5 ml-2"
@@ -47,7 +47,6 @@ export const CardGrid = () => {
             width={500}
             height={50}
             className="pb-6"
-            loading="lazy"
           />
           <Card
             txt="Veja a evolução do Front-end na prática"

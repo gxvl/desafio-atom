@@ -29,7 +29,6 @@ export const Card: React.FC<CardProps> = ({
           alt={img || ""}
           width={569}
           height={342}
-          loading="lazy"
         />
       ) : (
         ""

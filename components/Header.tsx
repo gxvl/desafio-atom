@@ -49,13 +49,7 @@ export default function Header() {
         className=" lg:flex sm: grid place-items-center justify-center max-w-[1920px] w-full p-10"
       >
         <Link href="/" className=" mt-10 hover:scale-105 transition-all">
-          <Image
-            src="/logo.svg"
-            alt="logo"
-            width={161.14}
-            height={36.54}
-            loading="lazy"
-          />
+          <Image src="/logo.svg" alt="logo" width={161.14} height={36.54} />
         </Link>
         <div className="lg:hidden p-2 grid">
           {/* Menu Hamburger */}
@@ -104,13 +98,7 @@ export default function Header() {
             className="px-6 rounded-r bg-purple-50
           hover:bg-purple-70 transition-all ease-linear cursor-pointer"
           >
-            <Image
-              src="/search.svg"
-              alt="search"
-              height={24}
-              width={24}
-              loading="lazy"
-            />
+            <Image src="/search.svg" alt="search" height={24} width={24} />
           </button>
         </div>
       </motion.div>
