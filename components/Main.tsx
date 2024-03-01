@@ -28,7 +28,13 @@ const Main = () => {
            cursor-pointer hover:scale-105 transition-all items-center"
           >
             Veja mais
-            <Image src="/arrow-right.svg" alt="" width={24} height={24} />
+            <Image
+              src="/arrow-right.svg"
+              alt=""
+              width={24}
+              height={24}
+              loading="lazy"
+            />
           </p>
         </Link>
       </motion.div>
@@ -39,7 +45,7 @@ const Main = () => {
         transition={{ duration: 0.5 }}
         className="p-4 origin-center"
       >
-        <Image src="/pc.svg" alt="1" width={570} height={346} />
+        <Image src="/pc.svg" alt="1" width={570} height={346} loading="lazy" />
       </motion.div>
     </div>
   );
