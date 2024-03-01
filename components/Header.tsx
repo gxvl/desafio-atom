@@ -1,16 +1,21 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { NAV_BUTTONS } from "@/constants";
-import { useState } from "react";
+import { NAV_BUTTONS } from "@constants/index";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 export default function Header() {
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const [componentDidMount, setComponentDidMount] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
   };
+
+  useEffect(() => {
+    setComponentDidMount(true);
+  }, []);
 
   // Como utilizarei o mesmo código para o menu de navegação e para o menu de navegação mobile,
   // criei uma constante para armazenar os links e a reutilizar
@@ -39,38 +44,43 @@ export default function Header() {
   ));
 
   return (
-    <div className="container bg-purple-100 ">
-      {/* logo */}
+    <header className="bg-purple-100">
       <motion.div
         initial={{ opacity: 0, y: -100 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -100 }}
         transition={{ duration: 0.5 }}
-        className=" lg:flex sm: grid place-items-center justify-center max-w-[1920px] w-full p-10"
+        className=" container flex-wrap lg:flex sm:grid place-items-center
+        justify-center max-w-[1920px] mx-auto w-full p-10"
       >
-        <Link href="/" className=" mt-10 hover:scale-105 transition-all">
+        {/* logo */}
+        <Link
+          href="/"
+          className=" mt-10 hover:scale-105 transition-all
+        "
+        >
           <Image src="/logo.svg" alt="logo" width={161.14} height={36.54} />
         </Link>
         <div className="lg:hidden p-2 grid">
           {/* Menu Hamburger */}
           {/* Ícone de hambúrguer para abrir/fechar o menu */}
-          <button
-            type="button"
-            onClick={toggleMenu}
-            className="text-white focus:outline-none"
-          >
-            {isMenuOpen ? (
-              // Se o menu estiver aberto, exibe o 'X' para fechar
-              <button onClick={toggleMenu} className="text-4xl">
-                &times;
-              </button>
-            ) : (
-              // Quando o menu tá fechado, exibe o ícone de menu
-              <button onClick={toggleMenu} className="text-4xl">
-                &#8801;
-              </button>
-            )}
-          </button>
+          {isMenuOpen && componentDidMount ? (
+            // Se o menu estiver aberto, exibe o 'X' para fechar
+            <button
+              onClick={toggleMenu}
+              className="text-4xl text-white focus:outline-none"
+            >
+              &times;
+            </button>
+          ) : (
+            // Quando o menu tá fechado, exibe o ícone de menu
+            <button
+              onClick={toggleMenu}
+              className="text-4xl text-white focus:outline-none"
+            >
+              &#8801;
+            </button>
+          )}
 
           {/* Menu de navegação (exibido/oculto com base no state "isMenuOpen") */}
           {isMenuOpen && (
@@ -81,7 +91,8 @@ export default function Header() {
         </div>
 
         {/* Menu de navegação */}
-        <ul className="hidden h-full gap-12 mt-12 px-36 lg:flex">
+
+        <ul className="hidden h-full gap-11 mt-12 px-36 lg:flex">
           {homeButtons}
         </ul>
         <div className="flex mt-10">
@@ -93,6 +104,9 @@ export default function Header() {
           text-decoration-none focus:outline-none
           "
           />
+
+          {/* searchbar */}
+
           <button
             type="button"
             className="px-6 rounded-r bg-purple-50
@@ -102,6 +116,6 @@ export default function Header() {
           </button>
         </div>
       </motion.div>
-    </div>
+    </header>
   );
 }
