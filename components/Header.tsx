@@ -45,7 +45,7 @@ export default function Header() {
         initial={{ opacity: 0, y: -100 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -100 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
         className=" lg:flex sm: grid place-items-center justify-center max-w-[1920px] w-full p-10"
       >
         <Link href="/" className=" mt-10 hover:scale-105 transition-all">
