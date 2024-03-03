@@ -24,7 +24,7 @@ export default function Header() {
     <Link
       href={link.href}
       key={link.key}
-      className={`text-base text-white  flexCenter cursor-pointer
+      className={`text-base text-white flexCenter cursor-pointer
             pb-1.5 transition-all hover:font-bold ${
               link.key === "home" && "font-bold" // se o link atual no map for igual a home, então coloca font-bold
             }`}
@@ -50,8 +50,7 @@ export default function Header() {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -100 }}
         transition={{ duration: 0.5 }}
-        className=" container flex-wrap lg:flex sm:grid place-items-center
-        justify-center max-w-[1920px] mx-auto w-full p-10"
+        className="container flex-wrap lg:flex grid place-items-center justify-center max-w-[1920px] mx-auto w-full p-10"
       >
         {/* logo */}
         <Link
